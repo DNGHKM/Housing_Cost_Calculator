@@ -16,27 +16,27 @@ while True:
     print(f"대출금리 {(interest_loan_rate*100):.2f}% / 자금조달 비용 {(interest_cash_rate*100):.2f}%으로 계산합니다.")
 
     deposit=float(input("보증금을 입력하세요(억원, 소수 가능)"))
-    deposit=deposit*100000000
+    deposit=deposit*10**8
 
     rent=float(input("월세를 입력하세요(만원, 소수 가능)"))
-    rent=rent*10000
+    rent=rent*10**4
     def notice() :
         housingcost=interest_loan/12+interest_cash/12
         print(BLUE+"-------------------------------------------"+RESET)
         print(BLUE+"월 주거비는""["+str(format(math.floor(rent+housingcost),','))+"]""만원 입니다.(관리비 별도)"+RESET)
         print(BLUE+"-------------------------------------------"+RESET)
 
-    if deposit>400000000:
+    if deposit>4*10**8:
         print()
         interest_loan=deposit*interest_cash_rate
         interest_cash=0
         print(RED+"****신혼부부 버팀목 전세대출 이용이 불가합니다.****"+RESET)
         notice()
 
-    elif 375000000<deposit<=400000000:
+    elif 3.75*10**8<deposit<=4*10**8:
         print()
-        interest_loan=300000000*interest_loan_rate
-        interest_cash=(deposit-300000000)*interest_cash_rate
+        interest_loan=3*10**8*interest_loan_rate
+        interest_cash=(deposit-3*10**8)*interest_cash_rate
         notice()
 
     else :
